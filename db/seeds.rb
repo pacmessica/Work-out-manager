@@ -1,3 +1,8 @@
+ExercisesWorkouts.destroy_all
+Workout.destroy_all
+Exercise.destroy_all
+User.destroy
+
 user = User.create( email:"jessica@ex.ca", password:"abcd1234" )
 
 exercises = [
@@ -22,6 +27,6 @@ workouts.each do |w|
   workout = Workout.create( name:w[:name], description:w[:description], interval:w[:interval], user:user )
   w[:exercises].split(", ").each do |name|
     exercise = Exercise.find_by( name:name )
-    WorkoutsExercises.create( exercise:exercise, workout:workout, time:30, instructions:"Break your old record!" )
+    ExercisesWorkouts.create( exercise:exercise, workout:workout, time:30, instructions:"Break your old record!" )
   end
 end
