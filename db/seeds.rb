@@ -1,7 +1,7 @@
 ExercisesWorkouts.destroy_all
 Workout.destroy_all
 Exercise.destroy_all
-User.destroy
+User.destroy_all
 
 user = User.create( email:"jessica@ex.ca", password:"abcd1234" )
 
