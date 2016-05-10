@@ -1,7 +1,27 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+user = User.create( email:"jessica@ex.ca", password:"abcd1234" )
+
+exercises = [
+   { name:"Jumping Jacks", image:"jumping-jacks.jpg" },
+   { name:"Push-Ups", image:"push-ups.jpg" },
+   { name:"Planks", image:"planks.jpg" },
+   { name:"Squat", image:"squat.jpg" },
+   { name:"Lunge", image:"lunge.jpg" },
+   { name:"Sit-Ups", image:"sit-ups.jpg" }
+]
+
+exercises.each do |e|
+  Exercise.create( name:e[:name], image:e[:image], user:user )
+end
+
+workouts = [
+  { name:"Morning Workout", description:"Great Way to Start the Day", interval:10, exercises:"Jumping Jacks, Squat, Push-Ups" },
+  { name:"Core Workout", description:"A way to a better 6-Pack", interval:10, exercises:"Push-Ups, Planks, Sit-ups" }
+]
+
+workouts.each do |w|
+  workout = Workout.create( name:w[:name], description:w[:description], interval:w[:interval], user:user )
+  w[:exercises].split(", ").each do |name|
+    exercise = Exercise.find_by( name:name )
+    WorkoutsExercises.create( exercise:exercise, workout:workout, time:30, instructions:"Break your old record!" )
+  end
+end
