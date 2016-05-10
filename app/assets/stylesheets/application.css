@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+ .fixed-header {
+   position: fixed;
+   background-color: #DFFAAF;
+   width: 100vw;
+   top: 0px;
+   left: 0px;
+ }
+
+ .push-header {
+   visibility: hidden;
+   width: 100vw;
+ }
+
+ #title {
+  color: #FF3789;
+  text-align: center;
+  letter-spacing: 1em;
+  font-size: 40px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.lower-header {
+  color: #FF3789;
+  background-color:	#432FA0;
+  text-align:right;
+  padding: 0.5em 2em 0.5em 0.5em;
+}
+
+.lower-header a {
+  color:#FC58A1;
+}

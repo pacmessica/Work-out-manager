@@ -4,14 +4,20 @@
   <title>WorkOutApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Orbitron|Sigmar+One' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
+<header class="fixed-header"><%= render "layouts/header" %></header>
+<header class="push-header"><%= render "layouts/header" %></header>
+<br/>
+<div class="app-body>"
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
 
-<%= yield %>
-
+  <%= yield %>
+</div>
 </body>
 </html>
