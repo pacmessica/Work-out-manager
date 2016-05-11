@@ -1,2 +1,11 @@
-<h1>Workouts#show</h1>
-<p>Find me in app/views/workouts/show.html.erb</p>
+<h1><%= @workout.name %></h1>
+<h2><%= @workout.description %>
+
+
+<% @workout.exercises.each_with_index do |exercise, index| %>
+<div class="exercise-panel">
+  <%= index + 1 %>.
+  <%= exercise.name %>
+  <div class="exercise-image"><%= image_tag(exercise.image) %></div>
+</div>
+<% end %>
