@@ -48,6 +48,22 @@
 ||||||| merged common ancestors
 =======
 
+.button {
+  font-family: "Orbitron";
+  text-decoration: none;
+  background-color: #DFFAAF;
+  color: #FF6194;
+  padding: 6px 8px 6px 8px;
+  border-radius: 5px;
+	border: 2px solid #B4DB6E;
+	text-align: center;
+}
+
+.exercise-container {
+  float: left;
+  width: 100%;
+}
+
 .exercise-panel {
   height: 160px;
   width: 160px;
@@ -67,6 +83,7 @@
 
 .workout-description {
   color: #432FA0;
+  padding-bottom: 20px;
 }
 
 .workout-title {
