@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-.start-workout-button {
+.button {
   font-family: "Orbitron";
   text-decoration: none;
   background-color: #DFFAAF;
@@ -45,6 +45,10 @@
 
 .exercise-image {
   padding-top: 30px;
+}
+
+.hidden {
+  display: none;
 }
 
 .workout-animation {
