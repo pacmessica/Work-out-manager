@@ -1,17 +1,37 @@
 <div class="workout-body">
-  <h1 class="workout-title"><%= @workout.name %></h1>
-  <p class="workout-description"><%= @workout.description %></p>
 
-  <div class="exercise-container">
-    <% @workout.exercises.each_with_index do |exercise, index| %>
-    <div class="exercise-panel">
-      <%= index + 1 %>.
-      <%= exercise.name %>
-      <div class="exercise-image"><%= image_tag(exercise.image, width:"100", height:"auto") %></div>
+  <div class="workout-overview">
+    <h1 class="workout-title"><%= @workout.name %></h1>
+    <p class="workout-description"><%= @workout.description %></p>
+
+    <div class="exercise-container">
+      <% @workout.exercises.each_with_index do |exercise, index| %>
+      <div class="exercise-panel">
+        <%= index + 1 %>.
+        <%= exercise.name %>
+        <div class="exercise-image"><%= image_tag(exercise.image, width:"100", height:"auto") %></div>
+      </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
 
-  <a href="#" class="button">Start Workout</a>
+    <a href="#" class="start-workout-button">Start Workout</a>
+  </div>
+<!-- 
+  <div class="workout-animation">
+    <h1 class="workout-title"><%= @workout.name %></h1>
+    <p class="workout-description"><%= @workout.description %></p>
+
+    <div class="exercise-container">
+      <% @workout.exercises.each_with_index do |exercise, index| %>
+      <div class="exercise-panel">
+        <%= index + 1 %>.
+        <%= exercise.name %>
+        <div class="exercise-image"><%= image_tag(exercise.image, width:"100", height:"auto") %></div>
+      </div>
+      <% end %>
+    </div>
+
+    <a href="#" class="start-workout-button">Start Workout</a>
+  </div> -->
 
 </div>

@@ -14,38 +14,33 @@
  *= require_self
  */
 
- .fixed-header {
-   position: fixed;
-   background-color: #DFFAAF;
-   width: 100vw;
-   top: 0px;
-   left: 0px;
- }
-
- .push-header {
-   visibility: hidden;
-   width: 100vw;
- }
-
- #title {
+.fixed-header {
+  position: fixed;
+  background-color: #DFFAAF;
+  width: 100vw;
+  top: 0px;
+  left: 0px;
+}
+.push-header {
+  visibility: hidden;
+  width: 100vw;
+}
+#title {
   color: #FF6194;
   text-align: center;
   letter-spacing: 1em;
   font-size: 40px;
   font-family: 'Orbitron', sans-serif;
 }
-
 .lower-header {
-  background-color:	#432FA0;
-  text-align:right;
+  background-color: #432FA0;
+  text-align: right;
   padding: 0.5em 2em 0.5em 0.5em;
   color: white;
 }
-
 .lower-header a {
-  color:#FF6194;
+  color: #FF6194;
 }
-
 .workout-body {
   text-align: left;
   max-width: 750px;
