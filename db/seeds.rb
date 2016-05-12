@@ -1,4 +1,4 @@
-ExercisesWorkouts.destroy_all
+ExercisesWorkout.destroy_all
 Workout.destroy_all
 Exercise.destroy_all
 User.destroy_all
@@ -19,14 +19,14 @@ exercises.each do |e|
 end
 
 workouts = [
-  { name:"Morning Workout", description:"Great Way to Start the Day", interval:10, exercises:"Jumping Jacks, Squat, Push-Ups" },
-  { name:"Core Workout", description:"A way to a better 6-Pack", interval:10, exercises:"Push-Ups, Planks, Sit-ups" }
+  { name:"Morning Workout", description:"Great Way to Start the Day", interval:2, exercises:"Jumping Jacks, Squat, Push-Ups" },
+  { name:"Core Workout", description:"A way to a better 6-Pack", interval:2, exercises:"Push-Ups, Planks, Sit-ups" }
 ]
 
 workouts.each do |w|
   workout = Workout.create( name:w[:name], description:w[:description], interval:w[:interval], user:user )
   w[:exercises].split(", ").each do |name|
     exercise = Exercise.find_by( name:name )
-    ExercisesWorkouts.create( exercise:exercise, workout:workout, time:30, instructions:"Break your old record!" )
+    ExercisesWorkout.create( exercise:exercise, workout:workout, time:5, instructions:"Break your old record!" )
   end
 end
