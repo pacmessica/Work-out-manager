@@ -14,17 +14,21 @@
       <% end %>
     </div>
 
-    <a href="#" class="start-workout button">Start Workout</a>
+    <a href="#" class="start-workout button" data-workoutinterval="<%=@workout.interval%>">Start Workout</a>
   </div>
 
   <div class="workout-animation">
-      <% @workout.exercises.each do |exercise| %>
+      <% @workout.exercises_workouts.each do |exercises_workout| %>
       <div class="exercise-view hidden">
-        <h1><%= exercise.name %></h1>
-        <div class="exercise-jumbo-image"><%= image_tag(exercise.image, width:"400", height:"auto") %></div>
+        <h1><%= exercises_workout.exercise.name %></h1>
+        <div class="exercise-jumbo-image"><%= image_tag(exercises_workout.exercise.image, width:"400", height:"auto") %></div>
       </div>
       <% end %>
       <a href="#" class="pause-workout button">Pause</a>
+  </div>
+
+  <div class="rest-countdown hidden">
+    <h2>BREAK</h2>
   </div>
 
 </div>
