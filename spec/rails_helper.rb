@@ -57,3 +57,13 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+def login_user
+  user = FactoryGirl.create(:user)
+  visit root_path
+  click_link "Log In"
+  fill_in "Email", with: user.email
+  fill_in "Password", with: "password"
+  click_button "Log in"
+  sleep 0.5 # wait for log in to complete
+end
