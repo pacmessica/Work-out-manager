@@ -11,7 +11,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |workout, evaluator|
-        create_list(:exercise, evaluator.exercises_count, workouts: [workout])
+        create_list(:exercises_workout, evaluator.exercises_count, workout: workout)
       end
     end
   end

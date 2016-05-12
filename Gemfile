@@ -41,10 +41,12 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
   gem 'capybara'
+  gem 'capybara-webkit'
 end
 
 group :test do
   gem 'database_cleaner'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do

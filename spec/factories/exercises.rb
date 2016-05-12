@@ -1,12 +1,12 @@
 FactoryGirl.define do
   factory :exercise do
     name Faker::Name.name
-    image "MyString"
+    image "lunge.jpg"
     description "MyText"
     user nil
   end
 
-  
+
 
   # factory :workout do
   #   exercises {[FactoryGirl.create(:exercise)]}
