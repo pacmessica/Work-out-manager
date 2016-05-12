@@ -28,7 +28,7 @@
  }
 
  #title {
-  color: #FF3789;
+  color: #FF6194;
   text-align: center;
   letter-spacing: 1em;
   font-size: 40px;
@@ -36,12 +36,21 @@
 }
 
 .lower-header {
-  color: #FF3789;
   background-color:	#432FA0;
   text-align:right;
   padding: 0.5em 2em 0.5em 0.5em;
+  color: white;
 }
 
 .lower-header a {
-  color:#FC58A1;
+  color:#FF6194;
+}
+
+.workout-body {
+  text-align: left;
+  max-width: 750px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-bottom: 40px;
+  padding-top: 20px;
 }

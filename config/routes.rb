@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
+
   get 'exercise/index'
 
   get 'exercise/show'
 
-  get 'workouts/index'
+  get '/workouts' => 'workouts#index'
 
-  get 'workouts/show'
+  get '/workouts/:id' => 'workouts#show', as: :workout
 
   devise_for :users
-  root to: "home#index"
+  root to: "workouts#index"
 end

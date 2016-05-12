@@ -1,3 +1,46 @@
 // Place all the styles related to the Workouts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.button {
+  font-family: "Orbitron";
+  text-decoration: none;
+  background-color: #DFFAAF;
+  color: #FF6194;
+  padding: 6px 8px 6px 8px;
+  border-radius: 5px;
+	border: 2px solid #B4DB6E;
+	text-align: center;
+}
+
+.exercise-container {
+  float: left;
+  width: 100%;
+}
+
+.exercise-panel {
+  height: 160px;
+  width: 160px;
+  float: left;
+  padding: 0 15px 30px 0;
+  margin-bottom: 30px;
+  box-sizing: content-box;
+  flex-direction: column;
+  border-bottom: solid 2px #61FFCC;
+  color: #017DA5;
+  font-family: "Orbitron";
+}
+
+.exercise-image {
+  padding-top: 30px;
+}
+
+.workout-description {
+  color: #432FA0;
+  padding-bottom: 20px;
+}
+
+.workout-title {
+  font-family: "Sigmar One";
+  color: #FF6194;
+}
