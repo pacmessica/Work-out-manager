@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/workouts/:id' => 'workouts#show', as: :workout
 
+  get '/workouts/new' => 'workouts#new'
+
   devise_for :users
   root to: "workouts#index"
 end
