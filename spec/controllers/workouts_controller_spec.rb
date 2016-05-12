@@ -27,6 +27,21 @@ RSpec.describe WorkoutsController, type: :controller do
     end
   end
 
+  describe "GET /workouts/new" do
+    before do
+      login_user
+      get :new
+    end
+
+    it "assigns @workout" do
+      expect(assigns(:workout)).to be_a(Workout)
+    end
+
+    it "renders the :new template" do
+      response.should render_template :new
+    end
+  end
+
   describe "GET #show" do
     let(:workout) { FactoryGirl.create(:workout)}
     before do
@@ -40,5 +55,4 @@ RSpec.describe WorkoutsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-
 end

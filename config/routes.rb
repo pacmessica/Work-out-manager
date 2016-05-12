@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   get '/workouts' => 'workouts#index'
 
-  get '/workouts/:id' => 'workouts#show', as: :workout
-
   get '/workouts/new' => 'workouts#new'
+
+  get '/workouts/:id' => 'workouts#show', as: :workout
 
   devise_for :users
   root to: "workouts#index"
