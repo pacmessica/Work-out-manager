@@ -24,9 +24,24 @@ feature 'Begin Workout Animation', :js => true do
     expect(page).not_to have_css('.exercise-view')
   end
 
-  scenario 'Show only first exercise after initial break' do
+  scenario 'Show only first exercise after initial break interval' do
     start_workout()
-    sleep workout.exercises_workouts.first.interval + 2
+    sleep workout.interval + 0.3
     expect(page).to have_css('.exercise-view', count: 1, text: workout.exercises.first.name)
+    expect(page).not_to have_css('.rest-countdown')
+  end
+
+  scenario 'Show break after first exercise' do
+    start_workout()
+    sleep workout.interval + workout.exercises_workouts.first.time + 0.3
+    expect(page).not_to have_css('.exercise-view')
+    expect(page).to have_css('.rest-countdown')
+  end
+
+  scenario 'Show second exercise after break' do
+    start_workout()
+    sleep workout.interval + workout.exercises_workouts.first.time + 0.3
+    expect(page).to have_css('.exercise-view', count: 1, text: workout.exercises.second.name)
+    expect(page).not_to have_css('.rest-countdown')
   end
 end

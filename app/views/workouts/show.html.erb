@@ -19,7 +19,7 @@
 
   <div class="workout-animation">
       <% @workout.exercises_workouts.each do |exercises_workout| %>
-      <div class="exercise-view hidden">
+      <div class="exercise-view hidden" data-exercisetime="<%= exercises_workout.time %>">
         <h1><%= exercises_workout.exercise.name %></h1>
         <div class="exercise-jumbo-image"><%= image_tag(exercises_workout.exercise.image, width:"400", height:"auto") %></div>
       </div>
