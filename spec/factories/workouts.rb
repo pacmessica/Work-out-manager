@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :workout do
     name Faker::Name.name
     description "MyText"
-    interval 1
+    interval 2
     user nil
 
     factory :workout_with_exercises do

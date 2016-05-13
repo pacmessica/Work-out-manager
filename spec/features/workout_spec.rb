@@ -44,8 +44,33 @@ feature 'Begin Workout Animation', :js => true do
 
   scenario 'Show second exercise after break' do
     start_workout
-    sleep workout.interval + workout.exercises_workouts.first.time + 0.3
+    sleep workout.interval + workout.exercises_workouts.first.time + 0.6
     expect(page).to have_css('.exercise-view', count: 1, text: workout.exercises.second.name)
     expect(page).not_to have_css('.rest-countdown')
+  end
+end
+
+feature 'Begin Workout Animation', :js => true do
+  let(:workout) { FactoryGirl.create(:workout_with_exercises)}
+
+  before do
+    login_user
+  end
+
+  scenario 'Timer begins countdown from breakTime' do
+    start_workout
+    expect(page).to have_css('.countdown', text: workout.interval)
+  end
+
+  scenario "Timer countsdown from breakTime" do
+    start_workout
+    sleep 1.1
+    expect(page).to have_css('.countdown', text: workout.interval - 1)
+  end
+
+  scenario "Timer begins countdown from from second breakTime" do
+    start_workout
+    sleep workout.interval + workout.exercises_workouts.first.time + 0.3
+    expect(page).to have_css('.countdown', text: workout.interval)
   end
 end
