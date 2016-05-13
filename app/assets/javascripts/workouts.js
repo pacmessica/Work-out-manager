@@ -19,6 +19,17 @@ function startWorkout(){
   function doBreak() {
     $(".exercise-view").hide();
     $(".rest-countdown").show();
+    var time = breakTime / 1000;
+    countDown(time)
+  }
+
+  function countDown(time) {
+    $(".countdown").html(time)
+    var newTime = time - 1;
+    console.log(newTime)
+    if (newTime > 0) {
+      setTimeout(function(){ countDown(newTime) }, 1000);
+    }
   }
 
   function showExercise() {
