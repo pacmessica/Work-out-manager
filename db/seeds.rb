@@ -19,8 +19,8 @@ exercises.each do |e|
 end
 
 workouts = [
-  { name:"Morning Workout", description:"Great Way to Start the Day", interval:2, exercises:"Jumping Jacks, Squat, Push-Ups" },
-  { name:"Core Workout", description:"A way to a better 6-Pack", interval:2, exercises:"Push-Ups, Planks, Sit-ups" }
+  { name:"Morning Workout", description:"Great Way to Start the Day", interval:2, exercises:"Jumping Jacks, Squat, Push-Ups, Lunge" },
+  { name:"Core Workout", description:"A way to a better 6-Pack", interval:2, exercises:"Push-Ups, Planks, Sit-Ups" }
 ]
 
 workouts.each do |w|
