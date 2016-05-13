@@ -53,6 +53,8 @@
 
 .workout-animation {
   display: none;
+  color: #017DA5;
+  font-family: "Orbitron";
 }
 
 .workout-description {
@@ -63,4 +65,20 @@
 .workout-title {
   font-family: "Sigmar One";
   color: #FF6194;
+}
+
+.exercise-view {
+  padding-bottom: 20px;
+}
+
+.rest-countdown {
+  font-size: 40px;
+  text-align: left;
+  background-image: url("kitten.jpg");
+  height: 400px;
+  font-family: "Sigmar One";
+  color: #FF6194;
+  margin-bottom: 20px;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
 }
