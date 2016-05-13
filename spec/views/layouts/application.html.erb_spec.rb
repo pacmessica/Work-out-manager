@@ -10,4 +10,9 @@ RSpec.describe "layouts/application.html.erb", type: :view do
     render
     expect(response).to have_css('p.alert')
   end
+
+  it "renders a home button link" do
+    render
+    expect(response).to have_css('.home-button')
+  end
 end
