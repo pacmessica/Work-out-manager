@@ -41,6 +41,16 @@
 .lower-header a {
   color: #FF6194;
 }
+.lower-header a:hover {
+  color: #FA98B8;
+}
+.home-button {
+  float:left;
+}
+.home-button a {
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+}
 .workout-body {
   text-align: left;
   max-width: 750px;
