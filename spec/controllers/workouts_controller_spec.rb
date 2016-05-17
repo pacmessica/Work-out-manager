@@ -38,7 +38,7 @@ RSpec.describe WorkoutsController, type: :controller do
     end
 
     it "renders the :new template" do
-      response.should render_template :new
+      expect(response).to render_template :new
     end
   end
 
