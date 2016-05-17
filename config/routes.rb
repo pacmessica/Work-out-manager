@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get '/workouts' => 'workouts#index'
 
-  get '/workouts/new' => 'workouts#new'
+  get '/workouts/new' => 'workouts#new', as: :new_workout
 
   get '/workouts/:id' => 'workouts#show', as: :workout
 
