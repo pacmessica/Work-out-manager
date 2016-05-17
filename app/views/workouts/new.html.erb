@@ -1,1 +1,55 @@
-<h1>Add a New Workout</h1>
+<script>
+$(document).ready(function(){
+  $("#exercise-select").change(function(){
+    $(".hidden").show();
+    $("exercise-select").val()
+  });
+})
+</script>
+
+<section class="container add-article-form">
+  <div class="row text-center">
+    <h1>Add a New Workout</h1>
+  </div>
+
+    <%= form_for [@workout] do |f| %>
+      <div class="field">
+        <%= f.label "Workout Name" %>
+        <%= text_field :workout, :name%>
+      </div>
+
+      <div class="field">
+        <%= f.label "Description" %>
+        <%= text_area :workout, :description, size: "60" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Default Break Interval" %>
+        <%= number_field :workout, :interval, in: 5..60, step: 5 %>
+      </div>
+
+      <%= select_tag(:exercise_id, options_from_collection_for_select(Exercise.all, :id, :name ),  {:prompt => "--select exercise--", id: "exercise-select"} )%>
+
+      <div class="hidden">
+        <div class="field">
+          <%= f.label "Exercise" %>
+          <%= text_field :exercise, :name %>
+        </div>
+
+        <div class="field">
+          <%= f.label "Exercise Time" %>
+          <%= number_field :exercises_workouts, :time, in: 5..60, step: 5 %>
+        </div>
+
+        <div class="field">
+          <%= f.label "Exercise Instructions" %>
+          <%= text_field :exercises_workouts, :instructions %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Add", class: "btn" %>
+      </div>
+
+    <% end %>
+</section>
