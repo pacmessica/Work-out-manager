@@ -9,10 +9,11 @@ $(document).ready(function(){
 
 <section class="container add-article-form">
   <div class="row text-center">
-    <h1>Add a New Workout</h1>
+    <h1 style="color:#017DA5; font-family:Orbitron;">Add a New Workout</h1>
   </div>
 
-    <%= form_for [@workout] do |f| %>
+    <div class="inline">
+    <%= form_for @workout do |f| %>
       <div class="field">
         <%= f.label "Workout Name" %>
         <%= text_field :workout, :name%>
@@ -52,4 +53,5 @@ $(document).ready(function(){
       </div>
 
     <% end %>
+  </div>
 </section>

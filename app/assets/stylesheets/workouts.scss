@@ -87,3 +87,32 @@
   font-size: 100px;
   padding-left: 40px;
 }
+
+.field {
+  padding-bottom: 20px;
+}
+
+.field label {
+  text-align: left;
+  float: left;
+  width: 150px;
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+.field input,
+.field textarea {
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid #bebebe;
+  padding: 7px;
+  margin: 0px;
+  box-shadow: 0 0 8px #88d5e9;
+}
+
+.field input:focus,
+.field textarea:focus {
+  box-shadow: none;
+}
