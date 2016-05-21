@@ -3,75 +3,58 @@
     <h1 class="workout-title">Add a New Workout</h1>
   </div>
 
-    <div class="inline">
-    <%= form_for @workout do |f| %>
-      <div class="section-label">Workout Details</div>
-      <div class="form-section">
-        <div class="field">
-          <%= f.label "Workout Name" %>
-          <%= text_field :workout, :name%>
-        </div>
+  <%= form_for @workout do |f| %>
+  <div class="section-label">Workout Details</div>
+  <div class="form-section">
+    <div class="field">
+      <%= f.label "Workout Name" %>
+      <%= text_field :workout, :name%>
+    </div>
 
-        <div class="field">
-          <%= f.label "Description" %>
-          <%= text_area :workout, :description, size: "60" %>
-        </div>
+    <div class="field">
+      <%= f.label "Description" %>
+      <%= text_area :workout, :description, size: "60" %>
+    </div>
 
-        <div class="field">
-          <%= f.label "Break Interval" %>
-          <%= number_field :workout, :interval, in: 5..60, step: 5 %>
-        </div>
-      </div>
-
-      <div class="section-label">Add Exercsises</div>
-      <div class="form-section">
-
-        <div class="exercise-form">
-
-          <!-- <div class="inline field">
-            <%= f.label "Duration" %>
-            <%= number_field :exercises_workouts, :time, in: 30..300, step: 30 %>
-          </div>
-
-          <div class="inline field">
-            <%= f.label "Instructions" %>
-            <%= text_field :exercises_workouts, :instructions %>
-          </div> -->
-        </div>
-
-        <%= select_tag(:exercise_id, options_from_collection_for_select(Exercise.all, :id, :name ),
-        {prompt: "--select exercise--", id: "exercise-select"} )%>
-
-
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Add", class: "btn" %>
-      </div>
-
-    <% end %>
+    <div class="field">
+      <%= f.label "Break Interval" %>
+      <%= number_field :workout, :interval, in: 5..60, step: 5 %>
+    </div>
   </div>
+
+  <div class="section-label">Add Exercsises</div>
+  <div class="form-section">
+    <div class="exercise-form"></div>
+
+    <%= select_tag(:exercise_id, options_from_collection_for_select(Exercise.all, :id, :name ),
+          {prompt: "--select exercise--", id: "exercise-select"} )%>
+
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Workout", class: "btn" %>
+  </div>
+
+  <% end %>
 </section>
 
 <script>
-$(document).ready(function(){
-  $("#exercise-select").change(function(){
-    var exerciseSelect = this;
-    var id = exerciseSelect.value;
-    var name = exerciseSelect.querySelector("option[value='"+id+"']");
-    // $(".ex-image").html(name);
-    $(".hidden").show();
-    addExerciseDetails(name);
-  });
+  $(document).ready(function () {
+    $("#exercise-select").change(function () {
+      var exerciseSelect = this;
+      var id = exerciseSelect.value;
+      var name = exerciseSelect.querySelector("option[value='" + id + "']");
+      addExerciseDetails(name);
+    });
 
-  function addExerciseDetails(exercise){
-    x = exercise
-    console.log(exercise);
-    $(".exercise-form").append('<div class="inline field">'+exercise.innerHTML+'</div>');
-    $(".exercise-form").append('<div class="inline field">' +
-      '<label for="workout_Duration">Duration</label>' +
-      '<input step="30" min="30" max="300" type="number" name="exercises_workouts[time]" id="exercises_workouts_time">' +
-      '</div>');
-  }
-})
+    $(".add-instructions").on("click", addExerciseInstructions);
+
+    function addExerciseDetails(exercise) {
+      x = exercise
+      console.log(exercise);
+      $(".exercise-form").append('<div class="inline field">' + exercise.innerHTML + '</div>');
+      $(".exercise-form").append('<div class="inline field"><label for="workout_Duration">Duration</label><input step="30" min="30" max="600" type="number" name="exercises_workouts[time]" id="exercises_workouts_time"></div>');
+      $(".exercise-form").append('<div class="inline field"><label for="workout_Instructions">Instructions</label><input type="text" name="exercises_workouts[instructions]" id="exercises_workouts_instructions"></div>');
+    }
+  })
 </script>
