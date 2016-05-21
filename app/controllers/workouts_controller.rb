@@ -14,8 +14,10 @@ class WorkoutsController < ApplicationController
   def create
     workout_params = params.require(:workout).permit(:name, :interval, :description)
     workout_params[:user] = current_user
-    @workout = Workout.new(workout_params)
-    # exercsises_workouts_params = params.require(:exercsises_workouts).permit(:instructions, :time, :exercise_id)
+    @workout = Workout.create(workout_params)
+    exercises_workouts_params = params.require(:exercises_workouts).permit(:instructions, :time, :exercise_id)
+    exercises_workouts_params[:workout_id] = @workout[:id]
+    ExercisesWorkout.create(exercises_workouts_params)
     if @workout.save
       render json: { workout: @workout }
     else
