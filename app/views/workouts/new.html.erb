@@ -51,9 +51,9 @@
 
     function addExerciseDetails(id, exercise) {
       $(".exercise-form").append('<div class="inline field">' + exercise.innerHTML + '</div>');
-      $(".exercise-form").append('<input type=hidden id="exercises_workouts_id" name="exercises_workouts[exercise_id]" value="'+id+'"/>');
-      $(".exercise-form").append('<div class="inline field"><label for="workout_Duration">Duration</label><input step="30" min="30" max="600" type="number" name="exercises_workouts[time]" id="exercises_workouts_time"></div>');
-      $(".exercise-form").append('<div class="inline field"><label for="workout_Instructions">Instructions</label><input type="text" name="exercises_workouts[instructions]" id="exercises_workouts_instructions"></div>');
+      $(".exercise-form").append('<input type="hidden" name="exercises_workouts[][exercise_id]" value="'+id+'" />');
+      $(".exercise-form").append('<div class="inline field"><label for="workout_Duration">Duration</label><input step="30" min="30" max="600" type="number" name="exercises_workouts[][time]" id="exercises_workouts_time"></div>');
+      $(".exercise-form").append('<div class="inline field"><label for="workout_Instructions">Instructions</label><input type="text" name="exercises_workouts[][instructions]" id="exercises_workouts_instructions"></div>');
     }
   })
 </script>
