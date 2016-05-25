@@ -4,6 +4,17 @@
   </div>
 
   <%= form_for @workout do |f| %>
+    <% if @workout.errors.any? %>
+    <div id="error-explanation">
+      <ul>
+      <% @workout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+
   <div class="section-label">Workout Details</div>
   <div class="form-section">
     <div class="field">
