@@ -16,6 +16,7 @@ class WorkoutsController < ApplicationController
     workout_params[:user] = current_user
     @workout = Workout.create(workout_params)
 
+
     exercises_workouts_params = params.permit(exercises_workouts: [:exercise_id, :instructions, :time]).require(:exercises_workouts)
     exercises_workouts_params.each do |param|
       param[:workout_id] = @workout[:id]
@@ -23,7 +24,7 @@ class WorkoutsController < ApplicationController
     end
 
     if @workout.save
-      render json: { workout: @workout }
+      redirect_to workout_path(@workout)
     else
       render json: { errors: @workout.errors, status: :unprocessable_entity }
     end
