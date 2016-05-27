@@ -35,10 +35,19 @@
 
   <div class="section-label">Add Exercsises</div>
   <div class="form-section">
-    <div class="exercise-form"></div>
+    <div class="exercise-form"><ol></ol></div>
 
-    <%= select_tag(:exercise_id, options_from_collection_for_select(Exercise.all, :id, :name ),
-          {prompt: "--select exercise--", id: "exercise-select"} )%>
+    <div class="choose-exercise">
+      <div>
+        <%= select_tag(:exercise_id, options_from_collection_for_select(Exercise.all, :id, :name ),
+            {prompt: "--select exercise--", id: "exercise-select"} )%>
+      </div>
+      or
+      <div class="inline">
+
+      </div>
+    </div>
+
 
   </div>
 
@@ -61,10 +70,10 @@
     $(".add-instructions").on("click", addExerciseInstructions);
 
     function addExerciseDetails(id, exercise) {
-      $(".exercise-form").append('<div class="inline field"><label>' + exercise.innerHTML + '</label></div>');
-      $(".exercise-form").append('<input type="hidden" name="exercises_workouts[][exercise_id]" value="'+id+'" />');
-      $(".exercise-form").append('<div class="inline exercise-field"><label for="workout_Duration">Duration</label><input step="30" min="30" max="600" type="number" name="exercises_workouts[][time]" id="exercises_workouts_time"></div>');
-      $(".exercise-form").append('<div class="inline exercise-field"><label for="workout_Instructions">Instructions</label><input type="text" name="exercises_workouts[][instructions]" id="exercises_workouts_instructions"></div>');
+      $("ol").append('<li class="exercise-field"><strong>' + exercise.innerHTML + '</strong> for </li>');
+      $("li:last-child").append('<input step="30" min="30" max="600" type="number" name="exercises_workouts[][time]" id="exercises_workouts_time"> seconds:');
+      $("li:last-child").append('<input type="text" name="exercises_workouts[][instructions]" id="exercises_workouts_instructions"></li>');
+      $("li:last-child").append('<input type="hidden" name="exercises_workouts[][exercise_id]" value="'+id+'" />');
     }
   })
 </script>

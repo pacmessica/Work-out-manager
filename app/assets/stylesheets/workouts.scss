@@ -25,6 +25,11 @@
 	text-align: center;
 }
 
+.choose-exercise {
+  display: block;
+  margin-left: 20px;
+}
+
 .exercise-container {
   float: left;
   width: 100%;
@@ -49,6 +54,10 @@
 
 .hidden {
   display: none;
+}
+
+.inline {
+  display: inline;
 }
 
 .workout-animation {
@@ -113,11 +122,8 @@
   padding-right: 20px;
 }
 
-.exercise-field label {
-  text-align: left;
-  float: left;
-  width: 150px;
-  padding-right: 20px;
+.exercise-field {
+  margin-bottom: 15px;
 }
 
 .field input,
