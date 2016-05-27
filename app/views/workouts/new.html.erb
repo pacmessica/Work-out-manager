@@ -59,7 +59,7 @@
 </section>
 
 <script>
-  $(document).ready(function () {
+  $(document).on("ready page:load", function () {
     $("#exercise-select").change(function () {
       var exerciseSelect = this;
       var id = exerciseSelect.value;
