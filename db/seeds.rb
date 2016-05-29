@@ -15,7 +15,7 @@ exercises = [
 ]
 
 exercises.each do |e|
-  Exercise.create( name:e[:name], image:e[:image], user:user )
+  Exercise.create( name:e[:name], image:e[:image])
 end
 
 workouts = [
