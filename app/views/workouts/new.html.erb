@@ -38,14 +38,7 @@
     <div class="exercise-form"><ol></ol></div>
 
     <div class="choose-exercise">
-      <div>
-        <%= select_tag(:exercise_id, options_from_collection_for_select(Exercise.all, :id, :name ),
-            {prompt: "--select exercise--", id: "exercise-select"} )%>
-      </div>
-      or
-      <div class="inline">
-
-      </div>
+      <button type="button" id="add-exercise-entry">+</button>
     </div>
 
 
@@ -60,20 +53,34 @@
 
 <script>
   $(document).on("ready page:load", function () {
-    $("#exercise-select").change(function () {
-      var exerciseSelect = this;
-      var id = exerciseSelect.value;
-      var exercise = exerciseSelect.querySelector("option[value='" + id + "']");
-      addExerciseDetails(id, exercise);
-    });
 
-    $(".add-instructions").on("click", addExerciseInstructions);
+    $("#add-exercise-entry").on("click", function(){
+      var select = document.createElement('select');
+      var listItem = document.createElement('li');
+      listItem.appendChild(select);
 
-    function addExerciseDetails(id, exercise) {
-      $("ol").append('<li class="exercise-field"><strong>' + exercise.innerHTML + '</strong> for </li>');
-      $("li:last-child").append('<input step="30" min="30" max="600" type="number" name="exercises_workouts[][time]" id="exercises_workouts_time"> seconds:');
+      var prompt = document.createElement('option');
+      prompt.text = "--select exercise--";
+      select.appendChild(prompt);
+
+      var attrId = document.createAttribute("id");
+      attrId.value = "exercise-select";
+      select.setAttributeNode(attrId);
+
+      var attrName = document.createAttribute("name");
+      attrName.value = "exercises_workouts[][exercise_id]";
+      select.setAttributeNode(attrName);
+
+      var options = <%= raw Exercise.all.select(:id, :name).to_json %>
+      options.forEach(function(opt){
+        var element = document.createElement('option');
+        element.value = opt.id;
+        element.text = opt.name;
+        select.appendChild(element);
+      });
+      $("ol").append(listItem);
+      $("li:last-child").append('for <input step="30" min="30" max="600" type="number" name="exercises_workouts[][time]" id="exercises_workouts_time"> seconds:');
       $("li:last-child").append('<input type="text" name="exercises_workouts[][instructions]" id="exercises_workouts_instructions"></li>');
-      $("li:last-child").append('<input type="hidden" name="exercises_workouts[][exercise_id]" value="'+id+'" />');
-    }
+    });
   })
 </script>
