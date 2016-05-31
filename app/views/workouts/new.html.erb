@@ -1,1 +1,86 @@
-<h1>Add a New Workout</h1>
+<section class="container add-article-form">
+  <div class="row text-center">
+    <h1 class="workout-title">Add a New Workout</h1>
+  </div>
+
+  <%= form_for @workout do |f| %>
+    <% if @workout.errors.any? %>
+    <div id="error-explanation">
+      <ul>
+      <% @workout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+
+  <div class="section-label">Workout Details</div>
+  <div class="form-section">
+    <div class="field">
+      <%= f.label "Workout Name" %>
+      <%= text_field :workout, :name%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Description" %>
+      <%= text_area :workout, :description, size: "60" %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Break Interval" %>
+      <%= number_field :workout, :interval, in: 5..60, step: 5 %>
+    </div>
+  </div>
+
+  <div class="section-label">Add Exercsises</div>
+  <div class="form-section">
+    <div class="exercise-form"><ol></ol></div>
+
+    <div class="choose-exercise">
+      <button type="button" id="add-exercise-entry">+</button>
+    </div>
+
+
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Workout", class: "btn" %>
+  </div>
+
+  <% end %>
+</section>
+
+<script>
+  $(document).on("ready page:load", function () {
+
+    $("#add-exercise-entry").on("click", function(){
+      var select = document.createElement('select');
+      var listItem = document.createElement('li');
+      listItem.appendChild(select);
+
+      var prompt = document.createElement('option');
+      prompt.text = "--select exercise--";
+      select.appendChild(prompt);
+
+      var attrId = document.createAttribute("id");
+      attrId.value = "exercise-select";
+      select.setAttributeNode(attrId);
+
+      var attrName = document.createAttribute("name");
+      attrName.value = "exercises_workouts[][exercise_id]";
+      select.setAttributeNode(attrName);
+
+      var options = <%= raw Exercise.all.select(:id, :name).to_json %>
+      options.forEach(function(opt){
+        var element = document.createElement('option');
+        element.value = opt.id;
+        element.text = opt.name;
+        select.appendChild(element);
+      });
+      $("ol").append(listItem);
+      $("li:last-child").append('for <input step="30" min="30" max="600" type="number" name="exercises_workouts[][time]" id="exercises_workouts_time"> seconds:');
+      $("li:last-child").append('<input type="text" name="exercises_workouts[][instructions]" id="exercises_workouts_instructions"></li>');
+    });
+  })
+</script>

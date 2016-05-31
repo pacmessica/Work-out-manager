@@ -25,4 +25,9 @@ RSpec.describe "workouts/index.html.erb", type: :view do
       end
     end
   end
+
+  it "renders a Add New Workout link" do
+    render
+    expect(response).to have_css('.add-workout')
+  end
 end

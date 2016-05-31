@@ -38,7 +38,29 @@ RSpec.describe WorkoutsController, type: :controller do
     end
 
     it "renders the :new template" do
-      response.should render_template :new
+      expect(response).to render_template :new
+    end
+  end
+
+  describe "POST #create" do
+    let(:exercise) { FactoryGirl.create(:exercise) }
+    let(:workout_params) do
+      { workout: {name:"hotwheels", interval:2, description:"awesome"},
+        exercises_workouts: [{exercise_id:exercise[:id], instructions:"cool", time:30}]}
+    end
+    before do
+      login_user
+    end
+
+    it "creates a new workout" do
+      expect {
+        post :create, workout_params
+      }.to change(Workout, :count).by(1)
+    end
+
+    it "redirects to the created workout" do
+      post :create, workout_params
+      expect(response).to redirect_to(Workout.last)
     end
   end
 
