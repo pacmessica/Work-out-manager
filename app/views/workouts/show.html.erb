@@ -21,13 +21,12 @@
       <% @workout.exercises_workouts.each do |exercises_workout| %>
       <div class="exercise-view hidden" data-exercisetime="<%= exercises_workout.time %>">
         <h1><%= exercises_workout.exercise.name %></h1>
-        <div class="exercise-jumbo-image"><%= image_tag(exercises_workout.exercise.image) %></div>
+        <div><%= image_tag(exercises_workout.exercise.image, class:"exercise-jumbo-image") %></div>
       </div>
       <% end %>
       <div class="rest-countdown hidden">
         <h2>BREAK</h2>
         <h3 class="countdown">0<h3>
-        <!-- <%= image_tag("kitten.jpg", width:"400", height:"auto") %> -->
       </div>
       <a href="#" class="pause-workout button">Pause</a>
   </div>
