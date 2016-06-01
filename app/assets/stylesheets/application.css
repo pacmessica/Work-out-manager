@@ -12,45 +12,58 @@
  *
  *= require_tree .
  *= require_self
- */
 
-.fixed-header {
-  position: fixed;
-  background-color: #DFFAAF;
-  width: 100vw;
-  top: 0px;
-  left: 0px;
+ */
+ .fixed-header {
+   position: fixed;
+   background-color: #DFFAAF;
+   width: 100vw;
+   top: -134px;
+   left: 0px;
+
+ }
+ .push-header {
+   visibility: hidden;
+   position:fixed;
+   width: 100vw;
+   top: -134px;
+ }
+ .lower-header {
+   background-color: #432FA0;
+   text-align: right;
+   padding: 0.5em 2em 0.5em 0.5em;
+   color: white;
+ }
+ #title {
+   color: #FF6194;
+   text-align: center;
+   letter-spacing: 1em;
+   font-size: 40px;
+   font-family: 'Orbitron', sans-serif;
+ }
+ .lower-header a {
+   color: #FF6194;
+ }
+ .lower-header a:hover {
+   color: #FA98B8;
+ }
+ .home-button {
+   float:left;
+ }
+ .home-button a {
+   text-decoration: none;
+   font-family: 'Orbitron', sans-serif;
+ }
+@media screen and (min-width: 600px) {
+  .fixed-header {
+    top: 0px;
+  }
+  .push-header {
+    position: relative;
+    top: 0px;
+  }
 }
-.push-header {
-  visibility: hidden;
-  width: 100vw;
-}
-#title {
-  color: #FF6194;
-  text-align: center;
-  letter-spacing: 1em;
-  font-size: 40px;
-  font-family: 'Orbitron', sans-serif;
-}
-.lower-header {
-  background-color: #432FA0;
-  text-align: right;
-  padding: 0.5em 2em 0.5em 0.5em;
-  color: white;
-}
-.lower-header a {
-  color: #FF6194;
-}
-.lower-header a:hover {
-  color: #FA98B8;
-}
-.home-button {
-  float:left;
-}
-.home-button a {
-  text-decoration: none;
-  font-family: 'Orbitron', sans-serif;
-}
+
 .workout-body {
   text-align: left;
   max-width: 750px;
