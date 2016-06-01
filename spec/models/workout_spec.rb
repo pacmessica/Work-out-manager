@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Workout, type: :model do
   it { is_expected.to have_many :exercises }
   it { is_expected.to have_many :exercises_workouts }
+  it { is_expected.to have_many :favourites }
+  it { is_expected.to belong_to :user }
 
   describe "validations" do
     it "requires a name" do
