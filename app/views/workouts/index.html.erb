@@ -1,14 +1,7 @@
 <h1>My Workouts</h1>
 
 <table>
-  <% @workouts.each do |workout| %>
-    <tr>
-      <td><%= link_to workout.name , workout%></td>
-      <% workout.exercises.each do |exercise| %>
-          <td><%= exercise.name %></td>
-      <% end %>
-    </tr>
-  <% end %>
+  <%= render @workouts %>
 </table>
 
 
