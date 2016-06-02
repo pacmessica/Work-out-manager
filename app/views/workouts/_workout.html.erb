@@ -1,11 +1,15 @@
 <% faved = Favourite.find_by(workout: workout, user: current_user ) != nil %>
 <% btn_color = faved ? "danger" : "default" %>
 
-<tr class="workout-partial-box" >
-  <td><%= link_to workout.name, workout %></td>
-  <td><% workout.exercises.each do |exercise| %>
-        <%= image_tag(exercise.image, width:"50px", height:"auto") %>
-    <% end %>
-  </td>
-  <td><%= link_to "<3", workout_favourites_path( workout ), method: :post, class: "btn btn-#{btn_color} btn-xs", disabled: !user_signed_in? %></td>
-</tr>
+<li class="workout-partial-box" >
+  <div class="imagebox">
+    <%= image_tag(workout.exercises.first.image, class:"small-image") %>
+  </div>  
+  <div class="textbox">
+    <h3><%= link_to workout.name, workout %></h3>
+    <p><%= workout.description %></p>
+  </div>
+  <div class="workout-links">
+    <%= link_to "<3", workout_favourites_path( workout ), method: :post, class: "btn btn-#{btn_color} btn-xs", disabled: !user_signed_in? %>
+  </div>
+</li>
