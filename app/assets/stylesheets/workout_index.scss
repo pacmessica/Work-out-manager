@@ -1,0 +1,53 @@
+.workout-partial-box{
+  height: 120px;
+  display: flex;
+}
+.textbox {
+  flex:3;
+}
+
+.workout-links{
+  flex:1;
+  opacity: 0;
+}
+
+.workout-links a{
+  line-height: 100px;
+}
+
+.small-image {
+  width: 120px;
+  height:auto;
+}
+
+li img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+
+li a {
+  text-decoration: none;
+}
+li {
+  padding: 10px;
+  list-style: none;
+}
+
+li:hover {
+  background: #eee;
+  cursor: pointer;
+  .workout-links{
+    opacity: 1;
+  }
+}
+.fi-heart {
+  font-size: 25px;
+}
+
+.red {
+  color: red;
+}
+
+.grey {
+  color:grey;
+}

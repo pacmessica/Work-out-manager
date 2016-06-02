@@ -21,7 +21,7 @@ RSpec.describe "workouts/index.html.erb", type: :view do
   it "renders all the exercises" do
     workouts.each do |workout|
       workout.exercises.each do |exercise|
-        assert_select 'td', text: exercise.name
+        assert_select 'td', image: exercise.image
       end
     end
   end
