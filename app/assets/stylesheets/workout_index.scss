@@ -13,6 +13,8 @@
 
 .workout-links a{
   line-height: 100px;
+  font-size: 25px;
+  padding-right: 5px;
 }
 
 .small-image {
@@ -40,12 +42,13 @@ li:hover {
     opacity: 1;
   }
 }
-.fi-heart {
-  font-size: 25px;
-}
+// .workout-links {
+//   font-size: 25px;
+// }
 
 .red {
   color: red;
+  visibility: visible;
 }
 
 .grey {
