@@ -10,7 +10,7 @@
     <p><%= workout.description %></p>
   </div>
   <div class="workout-links">
-    <%= link_to "", workout_favourites_path( workout ), method: :post, class:"fi-heart #{btn_color}", disabled: !user_signed_in? %>
-    <%= link_to "", "#", class:"fi-trash grey", disabled: !user_signed_in? %>
+    <div class="fi-heart <%=btn_color%>" data-workoutid="<%= workout.id %>"></div>
+    <div class="fi-trash grey"></div>
   </div>
 </li>

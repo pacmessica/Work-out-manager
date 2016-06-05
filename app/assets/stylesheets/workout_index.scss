@@ -11,10 +11,11 @@
   visibility: hidden;
 }
 
-.workout-links a{
+.workout-links div{
   line-height: 100px;
   font-size: 25px;
   padding-right: 5px;
+  display: inline-block;
 }
 
 .small-image {
