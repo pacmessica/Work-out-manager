@@ -12,9 +12,7 @@ Rails.application.routes.draw do
 
   post '/workouts' => 'workouts#create'
 
-  resources :workouts, :only => :index do
-    resources :favourites
-  end
+  post '/favourites' => 'favourites#create'
 
   devise_for :users
   root to: "workouts#index"
