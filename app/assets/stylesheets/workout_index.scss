@@ -8,7 +8,7 @@
 
 .workout-links{
   flex:1;
-  opacity: 0;
+  visibility: hidden;
 }
 
 .workout-links a{
@@ -35,16 +35,13 @@ li {
   list-style: none;
 }
 
-li:hover {
+.workout-partial-box:hover {
   background: #eee;
   cursor: pointer;
   .workout-links{
-    opacity: 1;
+    visibility: visible;
   }
 }
-// .workout-links {
-//   font-size: 25px;
-// }
 
 .red {
   color: red;
