@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   post '/workouts' => 'workouts#create'
 
-  resources :workouts, :only => :show do
+  resources :workouts, :only => :index do
     resources :favourites
   end
 
