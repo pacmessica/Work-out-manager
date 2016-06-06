@@ -1,6 +1,6 @@
 class FavouritesController < ApplicationController
   def index
-    @workouts = Workout.joins(:favourites).group( 'workouts.id' ).having ( 'count( workout_id ) > 3' )
+    @workouts = Workout.joins(:favourites).group( 'workouts.id' ).order( 'count(workout_id) DESC' ).having ( 'count( workout_id ) > 1' )
   end
 
   def create
