@@ -1,5 +1,6 @@
 <% faved = Favourite.find_by(workout: workout, user: current_user ) != nil %>
-<% btn_color = faved ? "red" : "grey" %>
+<% btn_color = faved ? "red" : "" %>
+<% faved = faved ? "faved" : "unfaved" %>
 
 <li class="workout-partial-box" >
   <div class="imagebox">
@@ -9,7 +10,15 @@
     <h3><%= link_to workout.name, workout %></h3>
     <p><%= workout.description %></p>
   </div>
-  <div class="workout-links">
-    <%= link_to "", workout_favourites_path( workout ), method: :post, class:"fi-heart #{btn_color}", disabled: !user_signed_in? %>
-  </div>
+  <% if !defined?(saved_workouts) || !saved_workouts %>
+    <div class="workout-links">
+      <div class="fav-count <%=btn_color%>"><%= workout.favourites.count %></div>
+      <div class="fi-heart <%=btn_color+" "+faved%>" data-workoutid="<%= workout.id %>"></div>
+    </div>
+  <% else %>
+    <div class="workout-links hidden-vis">
+      <div class="fi-heart <%=btn_color+" "+faved%>" data-workoutid="<%= workout.id %>"></div>
+      <div class="fi-trash"></div>
+    </div>
+  <%end%>
 </li>

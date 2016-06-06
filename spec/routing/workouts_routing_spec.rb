@@ -21,4 +21,12 @@ RSpec.describe WorkoutsController, type: :routing do
       expect(get route).to route_to("workouts#new")
     end
   end
+
+
+  describe "POST /workouts/create" do
+    it "routes to workouts#create" do
+      route = "/workouts"
+      expect(post route).to route_to("workouts#create")
+    end
+  end
 end

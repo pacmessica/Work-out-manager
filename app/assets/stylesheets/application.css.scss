@@ -49,12 +49,13 @@
  .lower-header a:hover {
    color: #FA98B8;
  }
- .home-button {
+ .header-links {
    float:left;
  }
- .home-button a {
+ .header-links a {
    text-decoration: none;
    font-family: 'Orbitron', sans-serif;
+   padding-right: 10px;
  }
 @media screen and (min-width: 600px) {
   .fixed-header {

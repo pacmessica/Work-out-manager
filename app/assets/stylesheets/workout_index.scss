@@ -8,11 +8,18 @@
 
 .workout-links{
   flex:1;
-  opacity: 0;
+  color: grey;
 }
 
-.workout-links a{
+.hidden-vis {
+  visibility: hidden;
+}
+
+.workout-links div{
   line-height: 100px;
+  font-size: 25px;
+  padding-right: 5px;
+  display: inline-block;
 }
 
 .small-image {
@@ -33,21 +40,15 @@ li {
   list-style: none;
 }
 
-li:hover {
+.workout-partial-box:hover {
   background: #eee;
   cursor: pointer;
   .workout-links{
-    opacity: 1;
+    visibility: visible;
   }
-}
-.fi-heart {
-  font-size: 25px;
 }
 
 .red {
   color: red;
-}
-
-.grey {
-  color:grey;
+  visibility: visible;
 }

@@ -13,8 +13,12 @@ RSpec.describe FavouritesController, type: :controller do
   end
 
   describe "POST #create" do
+    let(:workout) { FactoryGirl.create(:workout) }
     let(:favourite_params) do
-      { favourite: {workout_id: 1} }
+      { workout_id: workout.id }
+    end
+    before do
+      login_user
     end
     it "creates a new favourite" do
       expect {
