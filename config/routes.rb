@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   post '/workouts' => 'workouts#create'
 
+  get '/favourites' => 'favourites#index'
+
   post '/favourites' => 'favourites#create'
 
   devise_for :users
