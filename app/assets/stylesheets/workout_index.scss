@@ -8,6 +8,10 @@
 
 .workout-links{
   flex:1;
+  color: grey;
+}
+
+.hidden-vis {
   visibility: hidden;
 }
 
@@ -47,8 +51,4 @@ li {
 .red {
   color: red;
   visibility: visible;
-}
-
-.grey {
-  color:grey;
 }
