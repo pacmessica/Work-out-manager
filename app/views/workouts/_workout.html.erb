@@ -9,8 +9,15 @@
     <h3><%= link_to workout.name, workout %></h3>
     <p><%= workout.description %></p>
   </div>
-  <div class="workout-links">
-    <div class="fi-heart <%=btn_color%>" data-workoutid="<%= workout.id %>"></div>
-    <div class="fi-trash grey"></div>
-  </div>
+  <% if !defined?(saved_workouts) || !saved_workouts %>
+    <div class="workout-links">
+      <div><%= workout.favourites.count %></div>
+      <div class="fi-heart <%=btn_color%>" data-workoutid="<%= workout.id %>"></div>
+    </div>
+  <% else %>
+    <div class="workout-links">
+      <div class="fi-heart <%=btn_color%>" data-workoutid="<%= workout.id %>"></div>
+      <div class="fi-trash grey"></div>
+    </div>
+  <%end%>
 </li>
