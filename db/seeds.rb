@@ -77,9 +77,9 @@ nicky_workouts.each do |w|
 end
 
 fitmom_workouts = [
-  { name:"5 min Toned Arms", description:"8 minute bikini butt workout!", interval:2, exercises:"Push-Ups, Wall Sit, Triceps Dip" },
-  { name:"5 min Fat Burner!", description:"8 minute bikini body workout!", interval:2, exercises:"Jumping Jacks, Planks, Sit-Ups, Squat, Side Plank" },
-  { name:"Flat Abs!", description:"8 min At Home Cardio", interval: 2, exercises:"Jumping Jacks, Abdominal Crunch, Jumping Jacks, Lunge" }
+  { name:"5 min Toned Arms", description:"From Flab to Fab", interval:2, exercises:"Push-Ups, Wall Sit, Triceps Dip" },
+  { name:"5 min Fat Burner!", description:"Cardio-based workout aimed at fat blasting", interval:2, exercises:"Jumping Jacks, Planks, Sit-Ups, Squat, Side Plank" },
+  { name:"Flat Abs!", description:"Intense 5min core workout", interval: 2, exercises:"Jumping Jacks, Abdominal Crunch, Jumping Jacks, Lunge" }
 ]
 
 fitmom_workouts.each do |w|
