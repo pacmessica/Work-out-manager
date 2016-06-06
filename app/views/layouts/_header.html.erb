@@ -2,10 +2,11 @@
   <h1 id="title">Workout Manager</h1>
 </div>
 <div class="lower-header">
-  <div class="home-button">
+  <div class="header-links">
     <% if user_signed_in? %>
       <%= link_to "My Workouts", root_path%>
     <% end %>
+    <%= link_to "Popular", favourites_path%>
   </div>
   <div class="user">
     <% if !user_signed_in? %>
