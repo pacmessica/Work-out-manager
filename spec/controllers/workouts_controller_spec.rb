@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe WorkoutsController, type: :controller do
+  let!(:user) { FactoryGirl.create(:user) }
   def login_user
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    user = FactoryGirl.create(:user)
     sign_in user
   end
 
@@ -13,13 +13,18 @@ RSpec.describe WorkoutsController, type: :controller do
   end
 
   describe "GET #index" do
-    let(:workout) { FactoryGirl.create(:workout)}
+    let!(:fav_workout) { FactoryGirl.create(:workout)}
+    let!(:not_fav_workout) {FactoryGirl.create(:workout)}
+    let!(:fav) { Favourite.create(workout:fav_workout, user:user)}
     before do
       login_user
       get :index
     end
-    it "assigns @workouts" do
-      expect(assigns(:workouts)).to eq([workout])
+    it "assigns @workouts to users favourite workouts" do
+      expect(assigns(:workouts)).to eq([fav_workout])
+    end
+    it "does not assign @workouts when workout is not users favourite" do
+      expect(assigns(:workouts)).to_not eq([not_fav_workout])
     end
     it "returns http success" do
       get :index
