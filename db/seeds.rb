@@ -43,7 +43,7 @@ jess_workouts = [
 ]
 
 jess_workouts.each do |w|
-  user = User.find_by( email:"Jessica@ex.ca")
+  user = User.find_by( email:"jessica@ex.ca")
   workout = Workout.create( name:w[:name], description:w[:description], interval:w[:interval], user:user )
   w[:exercises].split(", ").each do |name|
     exercise = Exercise.find_by( name:name )
@@ -63,7 +63,7 @@ nicky_workouts = [
 ]
 
 nicky_workouts.each do |w|
-  user = User.find_by( email:"TrainerNicky@ex.ca")
+  user = User.find_by( email:"trainernicky@ex.ca")
   workout = Workout.create( name:w[:name], description:w[:description], interval:w[:interval], user:user )
   w[:exercises].split(", ").each do |name|
     exercise = Exercise.find_by( name:name )
@@ -83,7 +83,7 @@ fitmom_workouts = [
 ]
 
 fitmom_workouts.each do |w|
-  user = User.find_by( email:"FitMom@ex.ca")
+  user = User.find_by( email:"fitmom@ex.ca")
   workout = Workout.create( name:w[:name], description:w[:description], interval:w[:interval], user:user )
   w[:exercises].split(", ").each do |name|
     exercise = Exercise.find_by( name:name )
